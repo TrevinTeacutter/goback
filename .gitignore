@@ -1,0 +1,30 @@
+# Binaries for programs and plugins
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Test binary, built with `go test -c`
+*.test
+
+# Output of the go coverage tool, specifically when used with LiteIDE
+*.out
+
+# IDEs
+.idea/
+.intellij/
+.vscode/
+
+# Others
+dist/
+docs/site/
+site/
+static/
+coverage.html
+coverage.txt
+*.log
+*.iml
+
+# BEGONE DS_STORE
+.DS_Store

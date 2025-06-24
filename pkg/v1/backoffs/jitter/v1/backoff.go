@@ -1,7 +1,7 @@
 package jitter
 
 import (
-	"math/rand"
+	"math/rand/v2"
 	"time"
 
 	"github.com/TrevinTeacutter/goback/pkg/v1"

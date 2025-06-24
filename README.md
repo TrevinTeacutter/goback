@@ -7,17 +7,21 @@ An exponential backoff approach is typically used when treating with potentially
 ## How to use
 ```go
 func main() {
-        b := &goback.SimpleBackoff(
-                Min:    100 * time.Millisecond,
-                Max:    60 * time.Second,
-                Factor: 2,
-        )
-        goback.Wait(b)           // sleeps 100ms
-        goback.Wait(b)           // sleeps 200ms
-        goback.Wait(b)           // sleeps 400ms
-        fmt.Println(b.NextRun()) // prints 800ms
-        b.Reset()                // resets the backoff
-        goback.Wait(b)           // sleeps 100ms
+    b, err := exponential.New(
+        exponential.WithMinimum(100*time.Millisecond),
+        exponential.WithMaximum(60*time.Second),
+        exponential.WithFactor(2), 
+    )
+    if err != nil {
+        panic(err)
+    }
+
+    backoff.Wait(b)               // sleeps 100ms
+    backoff.Wait(b)               // sleeps 200ms
+    backoff.Wait(b)               // sleeps 400ms
+    fmt.Println(b.NextDuration()) // prints 800ms
+    b.Reset()                     // resets the backoff
+    backoff.Wait(b)               // sleeps 100ms
 }
 ```
 
